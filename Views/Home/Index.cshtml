@@ -1,0 +1,12 @@
+﻿@Html.React("HelloWorld", new
+{
+    name = "Guest"
+})
+
+@{
+    var props = new
+    {
+        initialItems = new string[] { "my todo 1", "my todo 2", "my todo 3" }
+    };
+}
+@Html.React("Todo", props)
