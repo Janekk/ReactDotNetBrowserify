@@ -2,12 +2,13 @@
 
 A sample of how to use [ASP.NET MVC + React.js integration](http://reactjs.net/) together with [Browserify bundles](http://browserify.org/) and take advantage of both technologies. 
 
-## Features
+## Goals
 
 * Script and content packages are managed by [npm](https://www.npmjs.org/);
-* Write modular JS code, Node.js style, thanks to Browserify
-* When [rendering React components on the server-side](http://reactjs.net/guides/server-side-rendering.html) you only need to list the relevant components, **without having to list their dependencies**. Dependency resolution relies on the npm module resolution algorithm implemented in Browserify. This makes the configuration of server-side bundle simplier. 
-* Build tasks for scripts and content are configured in [Gulp.js](http://gulpjs.com/) build system
+* JavaScript is written modular way, Node.js style;
+* Build tasks for scripts and content are configured in [Gulp.js](http://gulpjs.com/) build system 
+* When [rendering React components on the server-side](http://reactjs.net/guides/server-side-rendering.html), list only the relevant components, **without having to list their dependencies**. Dependency resolution relies on the npm module resolution algorithm implemented in Browserify.
+
 
 ## Requirements
 
@@ -16,6 +17,7 @@ In order to build project you'll need to have installed:
 * Visual Studio (project was created in VS2013 Web Express)
 * Node.js
 * npm
+* Install Gulp.js tool by running ```npm install –g gulp```
 
 ## Quick Start
 
@@ -26,9 +28,9 @@ In order to build project you'll need to have installed:
 
 ## Usage
 
-If pre-rendering components server-side, list all React components in [reactServerConfig.json](./reactServerConfig.json).
+If pre-rendering some React components server-side, configure them in [reactServerConfig.json](./reactServerConfig.json):
 
-	Example:
+Example:
 
 	```javascript
 	{
@@ -38,14 +40,15 @@ If pre-rendering components server-side, list all React components in [reactServ
 	  ]
 	}
 	```
-This config is processed during the build to create a special Browserify bundle for the server (See [gulpfile.js](./gulpfile.js)). ASP.NET ReactConfig class only needs to reference this one bundle file. 
+This configuration is processed by the build task to create a special Browserify bundle for the server (See [gulpfile.js](./gulpfile.js)). ReactJS.NET [ReactConfig](./App_Start/ReactConfig.cs) only needs to reference this one bundle file. 
 
-ASP.NET project is configured to trigger the bundling automatically (running gulp in pre-build event).
+ASP.NET project is configured to trigger the bundling automatically (running gulp task in pre-build event of .NET project).
 
-Additionally, there is a default gulp task to automatically rebuild client-side assets on every change of source scripts; Run the ```gulp``` command to start watching for changes;
+Additionally, there is a default gulp task to automatically rebuild client-side assets on every change of source scripts; Run the ```gulp``` in command-line to start watching for changes;
  
-More detailed informations can be found in [this blog article](#).
+More detailed informations can be found in [blog article (TBD)](#).
 
 ## TODO
+...
 
 
