@@ -32,14 +32,15 @@ If pre-rendering some React components server-side, configure them in [reactServ
 
 Example:
 
-	```javascript
-	{
-	  "expose": [
-	    { "path": "./Scripts/App/Components/Todo", "name" : "Todo" },
-	    { "path": "./Scripts/App/Components/HelloWorld", "name" : "HelloWorld" }
-	  ]
-	}
-	```
+```javascript
+{
+  "expose": [
+    { "path": "./Scripts/App/Components/Todo", "name" : "Todo" },
+    { "path": "./Scripts/App/Components/HelloWorld", "name" : "HelloWorld" }
+  ]
+}
+```
+
 This configuration is processed by the build task to create a special Browserify bundle for the server (See [gulpfile.js](./gulpfile.js)). ReactJS.NET [ReactConfig](./App_Start/ReactConfig.cs) only needs to reference this one bundle file. 
 
 ASP.NET project is configured to trigger the bundling automatically (running gulp task in pre-build event of .NET project).
