@@ -7,5 +7,4 @@ var HelloWorld = React.createClass({
       );
   }
 });
-
 module.exports = HelloWorld;

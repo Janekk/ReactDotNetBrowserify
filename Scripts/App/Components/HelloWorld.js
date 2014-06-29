@@ -8,5 +8,4 @@ var HelloWorld = React.createClass({displayName: 'HelloWorld',
       );
   }
 });
-
 module.exports = HelloWorld;
