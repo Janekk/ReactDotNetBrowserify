@@ -27,7 +27,7 @@ var TodoApp = React.createClass({displayName: 'TodoApp',
   render: function() {
     return (
       React.DOM.div(null, 
-        React.DOM.h3(null, "Markdown TODO:"),
+        React.DOM.h3(null, "TODO (supports Markdown syntax):"),
         TodoList( {items:this.state.items} ),
         React.DOM.form( {onSubmit:this.handleSubmit}, 
           React.DOM.input( {onChange:this.onChange, value:this.state.text} ),

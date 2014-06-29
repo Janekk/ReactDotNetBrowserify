@@ -26,7 +26,7 @@ var TodoApp = React.createClass({
   render: function() {
     return (
       <div>
-        <h3>Markdown TODO:</h3>
+        <h3>TODO (supports Markdown syntax):</h3>
         <TodoList items={this.state.items} />
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.onChange} value={this.state.text} />
