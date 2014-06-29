@@ -8,7 +8,9 @@ var paths = {
   },
   dest: {
     scripts: 'Scripts/Build',
-    bundle: 'serverBundle.js',
+    bundlesFilter: '!Scripts/Build/**/*.js',
+    serverBundle: 'serverBundle.js',
+    clientBundle: 'clientBundle.js',
     jsx: 'Scripts/App/Components'
   }
 };
@@ -31,51 +33,49 @@ var ExposeOnServer = function (browserify, configPath) {
   var config = require(configPath);
 
   if (config) {
-    if (config.componentsFile) {
-      if (config.expose) {
-        var components = {};
+    if (config.expose) {
+      var components = {};
 
-        config.expose.forEach(function (component) {
-          var path, name;
+      config.expose.forEach(function (component) {
+        var path, name;
 
-          if (typeof component === 'string') {
-            path = component;
+        if (typeof component === 'string') {
+          path = component;
+        }
+        else {
+          path = component.path;
+          if (component.name) {
+            name = component.name;
           }
-          else {
-            path = component.path;
-            if (component.name) {
-              name = component.name;
-            }
-          }
-          if (name === undefined) {
-            var splitted = path.split('/');
-            name = splitted[splitted.length - 1];
-          }
-          components[name] = path;
-        });
-        //console.log(components);
+        }
+        if (name === undefined) {
+          var splitted = path.split('/');
+          name = splitted[splitted.length - 1];
+        }
+        components[name] = path;
+      });
+      //console.log(components);
 
-        for (var name in components) {
-          browserify.add(components[name]);
-        };
+      for (var name in components) {
+        browserify.add(components[name]);
+      };
 
-        var componentsFile = CombinedStream.create();
-        componentsFile.append(';' + eol);
-        exposeModule(componentsFile, 'React', 'react')
+      var componentsFile = CombinedStream.create();
+      componentsFile.append(';' + eol);
+      exposeModule(componentsFile, 'React', 'react')
 
-        for (var name in components) {
-          var path = components[name];
-          console.log(path + ' ' + name);
-          exposeModule(componentsFile, name, path);
-        };
+      for (var name in components) {
+        var path = components[name];
+        console.log(path + ' ' + name);
+        exposeModule(componentsFile, name, path);
+      };
 
-        var bundleFile = CombinedStream.create();
-        bundleFile.append(browserify.bundle());
-        bundleFile.append(componentsFile);
-        bundleFile
-          .pipe(source(paths.dest.bundle))
-          .pipe(gulp.dest(paths.dest.scripts));
-      }
+      var bundleFile = CombinedStream.create();
+      bundleFile.append(browserify.bundle());
+      bundleFile.append(componentsFile);
+      bundleFile
+        .pipe(source(paths.dest.serverBundle))
+        .pipe(gulp.dest(paths.dest.scripts));
     }
   }
 }
@@ -92,9 +92,30 @@ gulp.task('react', function () {
     .pipe(gulp.dest(paths.dest.jsx));
 });
 
-gulp.task('browserify', function () {
+gulp.task('server-browserify', function () {
   ExposeOnServer(browserify());
 });
 
-gulp.task('build', ['react', 'browserify']);
+var watch = require('gulp-watch');
+var plumber = require('gulp-plumber');
+
+gulp.task('watch', function () {
+  //compile jsx
+  watch({glob: paths.src.jsx}, function (files) {
+    return files
+      .pipe(plumber())
+      .pipe(react())
+      .pipe(gulp.dest(paths.dest.jsx));
+  });
+
+  watch({glob: [paths.src.scripts, paths.dest.bundlesFilter]}, function (files) {
+    var b = browserify(paths.src.app);
+    b.bundle()
+      .pipe(source(paths.dest.clientBundle))
+      .pipe(gulp.dest(paths.dest.scripts));
+  });
+});
+
+gulp.task('server-build', ['react', 'server-browserify']);
+gulp.task('default', ['watch']);
 

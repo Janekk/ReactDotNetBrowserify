@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "react": "*"
+    "react": "*",
+    "markdown": "~0.5.0"
   },
   "devDependencies": {
     "gulp": "*",
@@ -13,6 +14,8 @@
     "gulp-eol": "0.0.1",
     "gulp-concat": "~2.2.0",
     "memory-streams": "0.0.3",
-    "combined-stream": "0.0.5"
+    "combined-stream": "0.0.5",
+    "gulp-watch": "~0.6.8",
+    "gulp-plumber": "~0.6.3"
   }
 }
