@@ -1,5 +1,4 @@
 {
-  "componentsFile" : "./Scripts/Build/serverComponents.js",
   "expose": [
     { "path": "./Scripts/App/Components/Todo", "name" : "Todo" },
     { "path": "./Scripts/App/Components/HelloWorld", "name" : "HelloWorld" }
