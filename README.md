@@ -6,7 +6,7 @@ A sample of how to use [React.js integration for ASP.NET MVC](http://reactjs.net
 
 - Use [npm](https://www.npmjs.org/) packages for external JS dependencies;
 - Write modular Javascript code Node.js style
-- In case of [server-side rendering of React components](http://reactjs.net/guides/server-side-rendering.html) it is possible to define a Browserify bundle for the server. Such bundle requires only listing of used components **without listing their dependencies**. Dependency resolution relies on the npm module resolution algorithm implemented in Browserify. This makes the configuration of server-side bundle simplier.
+- In case of [server-side rendering of React components](http://reactjs.net/guides/server-side-rendering.html) it is possible to define a Browserify bundle for the server. Such bundle requires only listing of used components **without having to list their dependencies**. Dependency resolution relies on the npm module resolution algorithm implemented in Browserify. This makes the configuration of server-side bundle simplier.
 - Define build tasks for scripts and content in [Gulp.js](http://gulpjs.com/) build system
 
 ## Requirements
@@ -21,7 +21,7 @@ In order to build project you'll need to have installed:
 
 * Install referenced npm packages: ``` npm install ```
 * Build and run ASP.NET MVC project in Visual Studio 
-..* initial build will automatically install referenced NuGet packages
+	* initial build will automatically install referenced NuGet packages
  
 
 ## Usage
@@ -39,8 +39,9 @@ In order to build project you'll need to have installed:
 	}
 	```
 - Build of ASP.NET project will trigger a build of bundle for the server;
-- There is a default gulp task to automatically rebuild client-side assets for every change; Run the ```gulp``` command to start watching;
+- There is a default gulp task to automatically rebuild client-side assets on every change of source scripts; Run the ```gulp``` command to start watching for changes;
  
+More detailed informations can be found in [this blog article](#).
 
 ## TODO
 
