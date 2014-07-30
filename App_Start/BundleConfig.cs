@@ -18,7 +18,7 @@ namespace ReactDotNetBrowserify
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new Bundle("~/bundles/main").Include(
-                "~/Scripts/Build/serverBundle.js"
+                "~/Scripts/dist/clientBundle.js"
             ));
 
             // Force minification/combination even in debug mode

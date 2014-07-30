@@ -17,7 +17,7 @@ namespace ReactDotNetBrowserify
 
 			// Example:
             ReactSiteConfiguration.Configuration
-                .AddScript("~/Scripts/Build/serverBundle.js");
+                .AddScript("~/Scripts/dist/serverBundle.js");
 		}
 	}
 }

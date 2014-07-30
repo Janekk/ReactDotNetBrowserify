@@ -1,12 +1,13 @@
-﻿@Html.React("HelloWorld", new
-{
-    name = "Guest"
-})
-
-@{
+﻿<div id="main">
+  @{
     var props = new
     {
-        initialItems = new string[] { "my todo 1", "my todo 2", "my todo 3" }
+      entries = new[] {
+        new {Text = "Make to do list", CreatedAt = DateTime.Now - TimeSpan.FromDays(35) },
+        new {Text = "Check off first thing on to do list  ", CreatedAt = DateTime.Now - TimeSpan.FromDays(13) },
+        new {Text = "Realize you've already accomplished 2 things", CreatedAt = DateTime.Now - TimeSpan.FromDays(5) }
+      }
     };
-}
-@Html.React("Todo", props)
+  }
+  @Html.React("Todo", props)
+</div>

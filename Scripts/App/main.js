@@ -1,2 +1,2 @@
-﻿//root client script to be used by client side browserify bundle
+﻿var Todo = require('./Components/Todo');
 

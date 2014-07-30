@@ -10,7 +10,8 @@ namespace ReactDotNetBrowserify.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home";
+            ViewBag.Title = "ReactJS.NET + Browserify";
+            ViewBag.UserName = "Guest";
             return View();
         }
 	}

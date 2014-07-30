@@ -1,0 +1,65 @@
+﻿body {
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-size: 100%;
+}
+#nav {
+  height: 50px;
+  background: #EEE9E9;
+  border-bottom: 1px dashed #000000;
+}
+#nav .title {
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+  color: #9a6525;
+}
+#nav .user-panel {
+  font-size: 0.9em;
+  padding: 10px;
+  width: 170px;
+  display: inline-block;
+  float: right;
+}
+#nav .user-panel a.logout {
+  display: inline-block;
+  float: right;
+  padding-left: 30px;
+  color: #000;
+}
+#nav .user-panel div.greeting {
+  display: inline-block;
+  float: left;
+}
+#nav .user-panel .elapsed {
+  font-size: 0.7em;
+  color: #5163d0;
+  clear: both;
+  float: right;
+}
+.todo {
+  width: 400px;
+  margin: 30px 0 0 10px;
+  padding-left: 10px;
+  background: #EEE9E9;
+  border: 1px dashed black;
+}
+.todo p {
+  margin: 0;
+  padding: 0;
+}
+.todo ul {
+  padding: 0;
+  list-style-type: none;
+}
+.todo ul li {
+  border-bottom: 1px dashed red;
+  margin-top: 5px;
+}
+.todo .hint {
+  font-size: 0.7em;
+}
+.todo .elapsed {
+  font-size: 0.7em;
+  color: #5163d0;
+}
+/*# sourceMappingURL=styles.css.map */

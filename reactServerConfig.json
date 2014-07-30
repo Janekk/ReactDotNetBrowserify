@@ -1,6 +1,6 @@
 {
   "expose": [
     { "path": "./Scripts/App/Components/Todo", "name" : "Todo" },
-    { "path": "./Scripts/App/Components/HelloWorld", "name" : "HelloWorld" }
+    { "path": "./Scripts/App/Components/UserPanel", "name" : "UserPanel" }
   ]
 }

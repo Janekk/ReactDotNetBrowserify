@@ -8,10 +8,20 @@
     <link rel="stylesheet" type="text/css" href="~/Content/styles.css">
 </head>
 <body>
-     <div class="container body-content">
-        @RenderBody()
+  <div id="nav">
+    <div class="title">@ViewBag.Title</div>
+    <div class="user-panel">
+      @Html.React("UserPanel", new
+      {
+        name = ViewBag.UserName
+      })
     </div>
-    @Scripts.Render("~/bundles/main")
-    @Html.ReactInitJavaScript()
+    <div style="clear: both;"></div>
+  </div>
+  <div class="container body-content">
+    @RenderBody()
+  </div>
+  @Scripts.Render("~/bundles/main")
+  @Html.ReactInitJavaScript()
 </body>
 </html>

@@ -186,7 +186,8 @@
     <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\DevPublish.pubxml" />
     <Content Include="Scripts\App\Components\Todo.jsx" />
-    <Content Include="Scripts\App\Components\HelloWorld.jsx" />
+    <Content Include="Scripts\App\Components\UserPanel.jsx" />
+    <Content Include="Scripts\App\Components\ElapsedTime.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,7 +196,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Scripts\Build\" />
+    <Folder Include="Scripts\dist\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -223,9 +224,10 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>cd $(ProjectDir)
-set NODE_ENV=$(ConfigurationName)
-gulp server-build</PreBuildEvent>
+<PreBuildEvent>
+    cd $(ProjectDir)
+    gulp server-build
+</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
