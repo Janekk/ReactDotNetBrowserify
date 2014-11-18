@@ -3,18 +3,23 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "react": "*",
+    "react": "~0.12.0",
     "markdown": "~0.5.0",
     "moment": "~2.7.0"
   },
   "devDependencies": {
-    "gulp": "*",
-    "browserify": "*",
-    "vinyl-source-stream": "*",
-    "gulp-react": "*",
+    "gulp": "~3.8.10",
+    "browserify": "~6.0.3",
+    "vinyl-source-stream": "~1.0.0",
+    "reactify": "~0.16.0",
     "memory-streams": "0.0.3",
     "combined-stream": "0.0.5",
-    "gulp-watch": "~0.6.8",
-    "gulp-plumber": "~0.6.3"
+    "gulp-watch": "~0.6.10",
+    "gulp-plumber": "~0.6.6"
+  },
+  "browserify": {
+    "transform": [
+      ["reactify", {"es6": true}]
+    ]
   }
 }
