@@ -13,8 +13,8 @@ var TodoItem = React.createClass({
 
 var TodoList = React.createClass({
   render: function() {
-    var createItem = function(item) {
-      return <TodoItem text={item.Text} createdAt={item.CreatedAt}/>;
+    var createItem = function(item, index) {
+      return <TodoItem text={item.Text} key={index} createdAt={item.CreatedAt}/>;
     };
     return <ol>{this.props.items.map(createItem)}</ol>;
   }
