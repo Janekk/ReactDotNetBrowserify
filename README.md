@@ -47,7 +47,7 @@ ASP.NET project is configured to trigger the bundling automatically (running gul
 
 Additionally, there is a default gulp task to automatically rebuild client-side assets on every change of source scripts; Run the ```gulp``` in command-line to start watching for changes;
  
-More detailed informations can be found in [blog article (TBD)](#).
+More detailed informations can be found in [blog article](http://janekk.github.io/tech/2014/07/25/aspnet-mvc-reactjs-browserify.html).
 
 ## TODO
 ...
