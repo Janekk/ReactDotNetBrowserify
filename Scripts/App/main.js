@@ -1,2 +1,4 @@
-﻿var Todo = require('./Components/Todo');
+﻿document.addEventListener('DOMContentLoaded', function () {
+  console.log('Hi, I\'m client script!');
+});
 
