@@ -69,7 +69,7 @@ var createServerBundle = function (browserify, configPath) {
     for (var name in serverComponents) {
       var path = serverComponents[name];
       requires.push({file: path, expose: name});
-      exposedVariables.append('var ' + name + ' = React.createFactory(require("' + name + '"));' + os.EOL);
+      exposedVariables.append('var ' + name + ' = require("' + name + '");');
     }
     browserify.require(requires);
     var bundleStream = CombinedStream.create();
